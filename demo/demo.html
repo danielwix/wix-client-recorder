@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Page for Wix Client Recorder</title>
+</head>
+<body>
+
+<button onclick="Recorder.start()">Record</button>
+<button onclick="Recorder.stop()">Stop Recording</button>
+<button onclick="Recorder.play()">Play</button>
+<button onclick="Recorder.printTable()">Export Recording to Console as Table</button>
+<button onclick="Recorder.printJson()">Export Recording to Console as Json</button>
+<button onclick="Demo.pasteJsonToTextArea()">Paste Playback to Text Area</button>
+<br/>
+<textarea rows="15" cols="100" type="text" id="insert-recording" value=""></textarea>
+<button onclick="Demo.loadPlaybackFromInsertRecording()">Play Inserted Recording</button>
+
+<script src="../src/wix-client-recorder.js"></script>
+<script src="../demo/src/demo.js"></script>
+
+</body>
+</html>

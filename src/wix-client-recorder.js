@@ -97,8 +97,12 @@
         }());
     }
 
-    function print() {
+    function printTable() {
         console.table(localSteps);
+    }
+
+    function printJson() {
+        console.log(JSON.stringify(localSteps));
     }
 
     function getCursor() {
@@ -154,7 +158,8 @@
         start: start,
         stop: stop,
         play: play,
-        print: print,
+        printTable: printTable,
+        printJson: printJson,
         getSteps: getSteps,
         setDebug: setDebug
     };
