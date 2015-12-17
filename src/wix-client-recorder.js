@@ -1,9 +1,10 @@
-/*eslint-env browser*/
+/*eslint-env browser,node*/
 (function () {
     'use strict';
 
-    var localSteps, preTime, nowTime;
-    var cursor = getCursor();
+    var Recorder;
+
+    var localSteps, preTime, nowTime, cursor;
     var debug = false;
 
     function onMouseMove(e) {
@@ -127,6 +128,7 @@
     }
 
     function showCursor() {
+        cursor = cursor || getCursor();
         document.body.appendChild(cursor);
     }
 
@@ -155,7 +157,7 @@
         console.log.apply(console, [now].concat(argsAsArray));
     }
 
-    window.Recorder = {
+    Recorder = {
         start: start,
         stop: stop,
         play: play,
@@ -165,4 +167,14 @@
         setDebug: setDebug
     };
 
-}());
+    // Export for use in server and client.
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = Recorder;
+    } else if (typeof this.define === 'function' && this.define.amd) {
+        this.define(function () {
+            return Recorder;
+        });
+    } else {
+        this.Recorder = Recorder;
+    }
+}).call(this);
