@@ -31,6 +31,7 @@
     function start() {
         log('Recording started');
         resetParams();
+        onScroll();
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('click', onClick);
         document.addEventListener('scroll', onScroll);
