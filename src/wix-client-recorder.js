@@ -98,11 +98,11 @@
     }
 
     function printTable() {
-        console.table(localSteps);
+        console.table(getSteps());
     }
 
     function printJson() {
-        console.log(JSON.stringify(localSteps));
+        console.log(JSON.stringify(getSteps()));
     }
 
     function getCursor() {
